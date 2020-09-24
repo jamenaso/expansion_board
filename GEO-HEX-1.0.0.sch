@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -3348,9 +3348,6 @@ Long-Range 900MHz OEM RF Module</description>
 <part name="SUPPLY30" library="SIMI-E" library_urn="urn:adsk.eagle:library:10243827" deviceset="AGND" device=""/>
 <part name="SUPPLY93" library="SIMI-E" library_urn="urn:adsk.eagle:library:10243827" deviceset="AGND" device=""/>
 <part name="SUPPLY94" library="SIMI-E" library_urn="urn:adsk.eagle:library:10243827" deviceset="AGND" device=""/>
-<part name="FBP5" library="SIMI-E" library_urn="urn:adsk.eagle:library:10243827" deviceset="FB" device="L1210" package3d_urn="urn:adsk.eagle:package:10243905/2" value="2 K/100Mhz"/>
-<part name="U$28" library="SIMI-E" library_urn="urn:adsk.eagle:library:10243827" deviceset="+3V3/A" device=""/>
-<part name="U$32" library="SIMI-E" library_urn="urn:adsk.eagle:library:10243827" deviceset="+3V3/AA" device=""/>
 <part name="U$10" library="SIMI-E" library_urn="urn:adsk.eagle:library:10243827" deviceset="+3V3/AA" device=""/>
 <part name="U$15" library="SIMI-E" library_urn="urn:adsk.eagle:library:10243827" deviceset="+3V3/AA" device=""/>
 <part name="U$14" library="SIMI-E" library_urn="urn:adsk.eagle:library:10243827" deviceset="+3V3/AA" device=""/>
@@ -3384,6 +3381,12 @@ Long-Range 900MHz OEM RF Module</description>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="SP1" library="pico-cpop" deviceset="1101M2S3V3BE2" device=""/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
+<part name="U$2" library="SIMI-E" library_urn="urn:adsk.eagle:library:10243827" deviceset="+3V3/A" device=""/>
+<part name="U$5" library="SIMI-E" library_urn="urn:adsk.eagle:library:10243827" deviceset="+3V3/AA" device=""/>
+<part name="U$3" library="SIMI-E" library_urn="urn:adsk.eagle:library:10243827" deviceset="+3V3/A" device=""/>
+<part name="U$6" library="SIMI-E" library_urn="urn:adsk.eagle:library:10243827" deviceset="+3V3/D" device=""/>
+<part name="GND10" library="supply1" deviceset="GND" device=""/>
+<part name="SUPPLY5" library="SIMI-E" library_urn="urn:adsk.eagle:library:10243827" deviceset="AGND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4804,16 +4807,6 @@ Long-Range 900MHz OEM RF Module</description>
 <instance part="SUPPLY94" gate="G$1" x="81.28" y="167.64" smashed="yes">
 <attribute name="VALUE" x="78.359" y="164.465" size="1.4224" layer="96"/>
 </instance>
-<instance part="FBP5" gate="G$1" x="45.72" y="165.1" smashed="yes">
-<attribute name="NAME" x="43.18" y="167.64" size="1.4224" layer="95"/>
-<attribute name="VALUE" x="40.64" y="162.56" size="1.4224" layer="96"/>
-</instance>
-<instance part="U$28" gate="G$1" x="38.1" y="167.64" smashed="yes">
-<attribute name="VALUE" x="41.148" y="171.958" size="1.4224" layer="96" rot="R180"/>
-</instance>
-<instance part="U$32" gate="G$1" x="53.34" y="167.64" smashed="yes">
-<attribute name="VALUE" x="58.42" y="172.72" size="1.4224" layer="96" rot="R180"/>
-</instance>
 <instance part="U$10" gate="G$1" x="93.98" y="185.42" smashed="yes">
 <attribute name="VALUE" x="99.06" y="190.5" size="1.4224" layer="96" rot="R180"/>
 </instance>
@@ -4939,14 +4932,6 @@ Long-Range 900MHz OEM RF Module</description>
 <wire x1="99.06" y1="175.26" x2="81.28" y2="175.26" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="175.26" x2="81.28" y2="172.72" width="0.1524" layer="91"/>
 <junction x="81.28" y="172.72"/>
-</segment>
-</net>
-<net name="+3V3/A" class="0">
-<segment>
-<pinref part="FBP5" gate="G$1" pin="P$1"/>
-<pinref part="U$28" gate="G$1" pin="+3V3/A"/>
-<wire x1="40.64" y1="165.1" x2="38.1" y2="165.1" width="0.1524" layer="91"/>
-<wire x1="38.1" y1="165.1" x2="38.1" y2="167.64" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="!RESET" class="0">
@@ -5212,12 +5197,6 @@ Long-Range 900MHz OEM RF Module</description>
 </net>
 <net name="+3V3/AA" class="0">
 <segment>
-<pinref part="FBP5" gate="G$1" pin="P$2"/>
-<pinref part="U$32" gate="G$1" pin="+3V3/AA"/>
-<wire x1="50.8" y1="165.1" x2="53.34" y2="165.1" width="0.1524" layer="91"/>
-<wire x1="53.34" y1="165.1" x2="53.34" y2="167.64" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="ICD1" gate="G$1" pin="VDD"/>
 <pinref part="U$15" gate="G$1" pin="+3V3/AA"/>
 <wire x1="139.7" y1="149.86" x2="167.64" y2="149.86" width="0.1524" layer="91"/>
@@ -5273,22 +5252,22 @@ Long-Range 900MHz OEM RF Module</description>
 <attribute name="SHEET" x="373.38" y="1.27" size="2.54" layer="94" font="vector"/>
 <attribute name="DRAWING_NAME" x="304.8" y="19.05" size="2.54" layer="94" font="vector"/>
 </instance>
-<instance part="JP1" gate="G$1" x="55.88" y="149.86" smashed="yes">
-<attribute name="NAME" x="48.26" y="154.94" size="1.778" layer="95"/>
-<attribute name="VALUE" x="48.26" y="144.78" size="1.778" layer="96"/>
+<instance part="JP1" gate="G$1" x="53.34" y="152.4" smashed="yes">
+<attribute name="NAME" x="45.72" y="157.48" size="1.778" layer="95"/>
+<attribute name="VALUE" x="45.72" y="147.32" size="1.778" layer="96"/>
 </instance>
-<instance part="P+5" gate="1" x="63.5" y="167.64" smashed="yes">
-<attribute name="VALUE" x="66.04" y="171.196" size="1.778" layer="96" rot="R180"/>
+<instance part="P+5" gate="1" x="60.96" y="170.18" smashed="yes">
+<attribute name="VALUE" x="63.5" y="173.736" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="GND9" gate="1" x="63.5" y="142.24" smashed="yes">
-<attribute name="VALUE" x="66.294" y="141.732" size="1.778" layer="96" rot="R180"/>
+<instance part="GND9" gate="1" x="60.96" y="144.78" smashed="yes">
+<attribute name="VALUE" x="63.754" y="144.272" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="JP2" gate="G$1" x="81.28" y="152.4" smashed="yes">
-<attribute name="VALUE" x="80.01" y="144.78" size="1.778" layer="96"/>
-<attribute name="NAME" x="80.01" y="155.702" size="1.778" layer="95"/>
+<instance part="JP2" gate="G$1" x="78.74" y="154.94" smashed="yes">
+<attribute name="VALUE" x="77.47" y="147.32" size="1.778" layer="96"/>
+<attribute name="NAME" x="77.47" y="158.242" size="1.778" layer="95"/>
 </instance>
-<instance part="GND12" gate="1" x="91.44" y="144.78" smashed="yes">
-<attribute name="VALUE" x="94.234" y="144.272" size="1.778" layer="96" rot="R180"/>
+<instance part="GND12" gate="1" x="88.9" y="147.32" smashed="yes">
+<attribute name="VALUE" x="91.694" y="146.812" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="FBP3" gate="G$1" x="314.96" y="137.16" smashed="yes">
 <attribute name="NAME" x="311.912" y="139.7" size="1.778" layer="95"/>
@@ -5306,9 +5285,9 @@ Long-Range 900MHz OEM RF Module</description>
 <attribute name="NAME" x="205.994" y="168.148" size="1.778" layer="95"/>
 <attribute name="VALUE" x="205.994" y="152.654" size="1.778" layer="96"/>
 </instance>
-<instance part="CP1" gate="G$1" x="147.32" y="142.24" smashed="yes">
-<attribute name="NAME" x="139.446" y="141.859" size="1.778" layer="95"/>
-<attribute name="VALUE" x="133.096" y="139.573" size="1.778" layer="96"/>
+<instance part="CP1" gate="G$1" x="144.78" y="144.78" smashed="yes">
+<attribute name="NAME" x="136.906" y="144.399" size="1.778" layer="95"/>
+<attribute name="VALUE" x="130.556" y="142.113" size="1.778" layer="96"/>
 </instance>
 <instance part="CP2" gate="G$1" x="200.66" y="132.08" smashed="yes">
 <attribute name="NAME" x="192.786" y="131.445" size="1.778" layer="95"/>
@@ -5337,8 +5316,8 @@ Long-Range 900MHz OEM RF Module</description>
 <attribute name="NAME" x="162.433" y="149.733" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="162.941" y="147.193" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="GND1" gate="1" x="147.32" y="132.08" smashed="yes">
-<attribute name="VALUE" x="150.114" y="131.572" size="1.778" layer="96" rot="R180"/>
+<instance part="GND1" gate="1" x="144.78" y="134.62" smashed="yes">
+<attribute name="VALUE" x="147.574" y="134.112" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="GND2" gate="1" x="200.66" y="119.38" smashed="yes">
 <attribute name="VALUE" x="203.454" y="118.872" size="1.778" layer="96" rot="R180"/>
@@ -5361,12 +5340,30 @@ Long-Range 900MHz OEM RF Module</description>
 <instance part="GND8" gate="1" x="165.1" y="137.16" smashed="yes">
 <attribute name="VALUE" x="167.894" y="136.652" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="SP1" gate="BEF1" x="116.84" y="160.02" smashed="yes" rot="MR270">
-<attribute name="NAME" x="119.38" y="165.1" size="1.778" layer="95" rot="MR0"/>
-<attribute name="VALUE" x="129.54" y="154.94" size="1.778" layer="96" rot="MR0"/>
+<instance part="SP1" gate="BEF1" x="114.3" y="162.56" smashed="yes" rot="MR270">
+<attribute name="NAME" x="116.84" y="167.64" size="1.778" layer="95" rot="MR0"/>
+<attribute name="VALUE" x="127" y="157.48" size="1.778" layer="96" rot="MR0"/>
 </instance>
-<instance part="GND35" gate="1" x="106.68" y="149.86" smashed="yes">
-<attribute name="VALUE" x="104.14" y="147.32" size="1.778" layer="96"/>
+<instance part="GND35" gate="1" x="104.14" y="152.4" smashed="yes">
+<attribute name="VALUE" x="101.6" y="149.86" size="1.778" layer="96"/>
+</instance>
+<instance part="U$2" gate="G$1" x="302.26" y="160.02" smashed="yes">
+<attribute name="VALUE" x="306.07" y="165.1" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="U$5" gate="G$1" x="327.66" y="149.86" smashed="yes">
+<attribute name="VALUE" x="332.74" y="154.94" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="U$3" gate="G$1" x="302.26" y="149.86" smashed="yes">
+<attribute name="VALUE" x="306.07" y="154.94" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="U$6" gate="G$1" x="327.66" y="160.02" smashed="yes">
+<attribute name="VALUE" x="330.454" y="164.338" size="1.4224" layer="96" rot="R180"/>
+</instance>
+<instance part="GND10" gate="1" x="302.26" y="142.24" smashed="yes" rot="R180">
+<attribute name="VALUE" x="299.466" y="142.748" size="1.778" layer="96"/>
+</instance>
+<instance part="SUPPLY5" gate="G$1" x="327.66" y="142.24" smashed="yes" rot="R180">
+<attribute name="VALUE" x="330.581" y="145.415" size="1.4224" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -5376,18 +5373,18 @@ Long-Range 900MHz OEM RF Module</description>
 <segment>
 <pinref part="JP1" gate="G$1" pin="3"/>
 <pinref part="GND9" gate="1" pin="GND"/>
-<wire x1="60.96" y1="149.86" x2="63.5" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="149.86" x2="63.5" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="152.4" x2="60.96" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="152.4" x2="60.96" y2="149.86" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="G$1" pin="2"/>
-<wire x1="63.5" y1="147.32" x2="63.5" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="60.96" y1="147.32" x2="63.5" y2="147.32" width="0.1524" layer="91"/>
-<junction x="63.5" y="147.32"/>
+<wire x1="60.96" y1="149.86" x2="60.96" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="149.86" x2="60.96" y2="149.86" width="0.1524" layer="91"/>
+<junction x="60.96" y="149.86"/>
 </segment>
 <segment>
 <pinref part="JP2" gate="G$1" pin="1"/>
 <pinref part="GND12" gate="1" pin="GND"/>
-<wire x1="88.9" y1="149.86" x2="91.44" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="91.44" y1="149.86" x2="91.44" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="152.4" x2="88.9" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="152.4" x2="88.9" y2="149.86" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="ICP1" gate="G$1" pin="SHDN"/>
@@ -5436,7 +5433,7 @@ Long-Range 900MHz OEM RF Module</description>
 <segment>
 <pinref part="GND1" gate="1" pin="GND"/>
 <pinref part="CP1" gate="G$1" pin="-"/>
-<wire x1="147.32" y1="134.62" x2="147.32" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="137.16" x2="144.78" y2="139.7" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND8" gate="1" pin="GND"/>
@@ -5446,25 +5443,31 @@ Long-Range 900MHz OEM RF Module</description>
 <segment>
 <pinref part="SP1" gate="BEF1" pin="3"/>
 <pinref part="GND35" gate="1" pin="GND"/>
-<wire x1="111.76" y1="157.48" x2="106.68" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="157.48" x2="106.68" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="160.02" x2="104.14" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="160.02" x2="104.14" y2="154.94" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="FBP3" gate="G$1" pin="P$1"/>
+<pinref part="GND10" gate="1" pin="GND"/>
+<wire x1="309.88" y1="137.16" x2="302.26" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="137.16" x2="302.26" y2="139.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+12V" class="0">
 <segment>
 <pinref part="JP2" gate="G$1" pin="2"/>
-<wire x1="88.9" y1="152.4" x2="91.44" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="91.44" y1="152.4" x2="91.44" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="154.94" x2="88.9" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="154.94" x2="88.9" y2="165.1" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="G$1" pin="1"/>
 <pinref part="P+5" gate="1" pin="+12V"/>
-<wire x1="60.96" y1="152.4" x2="63.5" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="152.4" x2="63.5" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="162.56" x2="63.5" y2="165.1" width="0.1524" layer="91"/>
-<wire x1="91.44" y1="162.56" x2="63.5" y2="162.56" width="0.1524" layer="91"/>
-<junction x="63.5" y="162.56"/>
+<wire x1="58.42" y1="154.94" x2="60.96" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="154.94" x2="60.96" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="165.1" x2="60.96" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="165.1" x2="60.96" y2="165.1" width="0.1524" layer="91"/>
+<junction x="60.96" y="165.1"/>
 <pinref part="SP1" gate="BEF1" pin="1"/>
-<wire x1="111.76" y1="162.56" x2="91.44" y2="162.56" width="0.1524" layer="91"/>
-<junction x="91.44" y="162.56"/>
+<wire x1="109.22" y1="165.1" x2="88.9" y2="165.1" width="0.1524" layer="91"/>
+<junction x="88.9" y="165.1"/>
 </segment>
 </net>
 <net name="5V" class="0">
@@ -5505,6 +5508,18 @@ Long-Range 900MHz OEM RF Module</description>
 <pinref part="ICP2" gate="G$1" pin="OUT"/>
 <pinref part="ICP2" gate="G$1" pin="TAB"/>
 </segment>
+<segment>
+<pinref part="FBP1" gate="G$1" pin="P$1"/>
+<pinref part="U$2" gate="G$1" pin="+3V3/A"/>
+<wire x1="309.88" y1="157.48" x2="302.26" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="157.48" x2="302.26" y2="160.02" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="FBP2" gate="G$1" pin="P$1"/>
+<wire x1="309.88" y1="147.32" x2="302.26" y2="147.32" width="0.1524" layer="91"/>
+<pinref part="U$3" gate="G$1" pin="+3V3/A"/>
+<wire x1="302.26" y1="147.32" x2="302.26" y2="149.86" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="SW" class="0">
 <segment>
@@ -5517,13 +5532,41 @@ Long-Range 900MHz OEM RF Module</description>
 <junction x="175.26" y="160.02"/>
 <pinref part="LP1" gate="G$1" pin="1"/>
 <pinref part="DP1" gate="G$1" pin="C"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
 <pinref part="CP1" gate="G$1" pin="+"/>
-<wire x1="147.32" y1="144.78" x2="147.32" y2="160.02" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="160.02" x2="165.1" y2="160.02" width="0.1524" layer="91"/>
-<junction x="165.1" y="160.02"/>
+<wire x1="144.78" y1="147.32" x2="144.78" y2="162.56" width="0.1524" layer="91"/>
 <pinref part="SP1" gate="BEF1" pin="2"/>
-<wire x1="121.92" y1="160.02" x2="147.32" y2="160.02" width="0.1524" layer="91"/>
-<junction x="147.32" y="160.02"/>
+<wire x1="119.38" y1="162.56" x2="144.78" y2="162.56" width="0.1524" layer="91"/>
+<pinref part="ICP1" gate="G$1" pin="IN"/>
+<wire x1="203.2" y1="162.56" x2="144.78" y2="162.56" width="0.1524" layer="91"/>
+<junction x="144.78" y="162.56"/>
+</segment>
+</net>
+<net name="+3V3/AA" class="0">
+<segment>
+<pinref part="U$5" gate="G$1" pin="+3V3/AA"/>
+<wire x1="327.66" y1="149.86" x2="327.66" y2="147.32" width="0.1524" layer="91"/>
+<pinref part="FBP2" gate="G$1" pin="P$2"/>
+<wire x1="327.66" y1="147.32" x2="320.04" y2="147.32" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="+3V3/D" class="0">
+<segment>
+<pinref part="FBP1" gate="G$1" pin="P$2"/>
+<pinref part="U$6" gate="G$1" pin="+3V3/D"/>
+<wire x1="320.04" y1="157.48" x2="327.66" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="327.66" y1="157.48" x2="327.66" y2="160.02" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="AGND" class="0">
+<segment>
+<pinref part="FBP3" gate="G$1" pin="P$2"/>
+<pinref part="SUPPLY5" gate="G$1" pin="AGND"/>
+<wire x1="320.04" y1="137.16" x2="327.66" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="327.66" y1="137.16" x2="327.66" y2="139.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
